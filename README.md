@@ -81,9 +81,9 @@ To simplify the integration with our 4X Ads API, we provide official client libr
 
 Don’t see your backend language here? You can still use our REST API directly.
 
-| ![Postman Logo](assets/icons/64x64/postman.svg) |
-| :---------------------------------------------: |
-| [Postman Collection](backend/postman/README.md) |
+| ![Postman Logo](assets/icons/64x64/postman.svg)                                  |
+| :------------------------------------------------------------------------------: |
+| [Postman Collection](00 - Postman Collection/4X Ads API.postman_collection.json) |
 
 ---
 

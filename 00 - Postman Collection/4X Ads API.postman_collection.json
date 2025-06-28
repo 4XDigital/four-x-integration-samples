@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "ebd9dfd7-8e36-4720-81cf-e6a350a517bd",
+		"name": "4X Ads API",
+		"description": "### 🛠️ Prerequisites\n\nBefore using this collection, make sure you’ve completed the following steps:\n\n1. **Gain Access to the 4X Ads API**  \n    Ensure you have an active account with access to the [4X Ads API](https://api.4xdigital.ai)\n    \n2. **Retrieve Your API Primary Key**  \n    After logging into the platform, navigate to your [profile](https://api.4xdigital.ai/profile) to locate and copy your **Primary Key**\n    \n3. **Configure the Environment Variable**  \n    Set the retrieved key in your Postman environment by updating the `ApiPrimaryKey` variable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32155168"
+	},
+	"item": [
+		{
+			"name": "1 - Retrieve Web Component Key",
+			"item": [
+				{
+					"name": "1 - Generate the keys",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/auth/web-components",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"auth",
+								"web-components"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Retrieve the keys",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/auth/web-components/keys",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"auth",
+								"web-components",
+								"keys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2 - Create Seller",
+			"item": [
+				{
+					"name": "3 - Create Seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"brand\": {\r\n        \"primaryColor\": \"#1A237E\",\r\n        \"secondaryColor\": \"#00BFA5\",\r\n        \"fontFamily\": \"Roboto\",\r\n        \"logoUrl\": \"https://globalsportsgear.com/logo.png\"\r\n    },\r\n    \"storeCountry\": \"US\",\r\n    \"targetLocations\": [{\r\n        \"country\": \"US\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"TX\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Houston\"\r\n        }]\r\n    }],\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }],\r\n    \"googleAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"BRL\",\r\n            \"amount\": 80\r\n        },\r\n        \"googleMerchantCenterProperties\": {\r\n            \"accountId\": \"3698521470\"\r\n        },\r\n        \"googleAnalyticsProperties\": {\r\n            \"accountId\": \"1472583690\",\r\n            \"propertyId\": \"987654321\"\r\n        },\r\n        \"googleAdsProperties\": {\r\n            \"accountId\": \"9638527410\"\r\n        }\r\n    },\r\n    \"metaAdsConfig\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Update Seller",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"brand\": {\r\n        \"primaryColor\": \"#1A237E\",\r\n        \"secondaryColor\": \"#00BFA5\",\r\n        \"fontFamily\": \"Roboto\",\r\n        \"logoUrl\": \"https://globalsportsgear.com/logo-new.png\"\r\n    },\r\n    \"targetLocations\": [{\r\n        \"country\": \"US\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"TX\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Houston\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Austin\"\r\n        }]\r\n    }, {\r\n        \"country\": \"BR\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"SP\"\r\n        }, {\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"RJ\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Rio de Janeiro\"\r\n        }]\r\n    }],\r\n    \"googleAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"BRL\",\r\n            \"amount\": 100\r\n        },\r\n        \"googleMerchantCenterProperties\": {\r\n            \"accountId\": \"3698521470\"\r\n        },\r\n        \"googleAnalyticsProperties\": {\r\n            \"accountId\": \"1472583690\",\r\n            \"propertyId\": \"987654321\"\r\n        },\r\n        \"googleAdsProperties\": {\r\n            \"accountId\": \"9638527410\"\r\n        }\r\n    },\r\n    \"metaAdsConfig\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers/{{SellerId}}",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers",
+								"{{SellerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Get Seller",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers/{{SellerId}}",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers",
+								"{{SellerId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - Create User",
+			"item": [
+				{
+					"name": "6 - Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Frances\",\r\n    \"lastName\": \"Gilbert\",\r\n    \"email\": \"francescgilbert@armyspy.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers/{{SellerId}}/users",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers",
+								"{{SellerId}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4 - Manage Subscription",
+			"item": [
+				{
+					"name": "7 - Start Subscription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers/{{SellerId}}/subscriptions/start",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers",
+								"{{SellerId}}",
+								"subscriptions",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8 - Pause Subscription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/sellers/{{SellerId}}/subscriptions/pause",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"sellers",
+								"{{SellerId}}",
+								"subscriptions",
+								"pause"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ApiEndpoint",
+			"value": "https://api.4xdigital.ai/api/v1/4xads",
+			"type": "string"
+		},
+		{
+			"key": "ApiPrimaryKey",
+			"value": "REPLACE_ME_PRIMARY_KEY_FROM_PROFILE_PAGE",
+			"type": "string"
+		},
+		{
+			"key": "SellerId",
+			"value": "REPLACE_ME_SELLER_ID",
+			"type": "string"
+		}
+	]
+}
