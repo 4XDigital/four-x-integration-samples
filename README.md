@@ -278,9 +278,11 @@ To load the 4X Web Component, include the following tags in your HTML:
 ```
 
 ℹ️ **index-latest always points to the latest stable version of the Web Component**
+
 If you prefer to lock to a specific release, you can use a versioned URL such as index-0.2.0.js and index-0.2.0.css
 
 🔁 **Cache busting tip**
+
 Some browsers or CDNs may aggressively cache index-latest. To force the browser to reload the latest version, you can append a query string like ?v=latest
 
 ```html
