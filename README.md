@@ -4,11 +4,11 @@
 
 Welcome to the **4X Platform Integration Samples** repository.
 
-This repo contains sample code to help you integrate the 4X Web Component and Ads API into your frontend and backend.
+This repository provides end-to-end integration samples for embedding the 4X Web Component and interacting with the 4X Ads API, enabling you to quickly deliver advertising functionality within your own platform
 
 ## 👤 Intended Audience
 
-This repository is for developers who want to integrate 4X features into their platform. It is useful for:
+This repository is for developers who want to integrate 4X features into their platform. It is intended for:
 
 - Frontend engineers embedding the 4X Web Component
 - Backend developers generating JWT tokens and calling the 4X Ads API
@@ -89,6 +89,12 @@ Don’t see your backend language here? You can still use our REST API directly.
 
 ## 📋 Quick Start Guide
 
+### ⚙️ Prerequisites
+
+Before you begin, ensure you have:
+
+- An invitation to the 4X Developer Portal
+
 ### 1. Accept Invitation to Developer Portal
 
 You’ll receive an email invitation from 4X to access the [4X Developer Portal](https://api.4xdigital.ai).
@@ -113,8 +119,8 @@ There, you’ll find your:
 
 Use **either key** to authenticate your requests by setting this header:
 
-``` js
-Ocp-Apim-Subscription-Key: <YOUR_API_KEY>
+```js
+Ocp-Apim-Subscription-Key: <REPLACE_ME_PRIMARY_KEY_FROM_PROFILE_PAGE>
 ```
 
 ---
@@ -159,7 +165,7 @@ Examples
 
 ### 4. Create Seller
 
-To create a seller on the 4X Platform, call the seller creation API from your backend. You can determine when to create the seller, for instance when the seller enables the advertising add-on on your platform. This registers the seller and links them to your platform
+To create a seller on the 4X Platform, invoke the seller creation endpoint from your backend. You can create the seller when they enable the advertising add-on on your platform. This registers the seller and associates them with your platform
 
 - **📘Create Seller**
 
@@ -182,7 +188,7 @@ To create a seller on the 4X Platform, call the seller creation API from your ba
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getSellerWithChannels)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getSellerWithChannels) |
 
-💡The **Seller ID** returned should be stored and mapped to your internal seller record
+💡Store the **Seller ID** returned and map it to your internal seller record
 
 Examples
 
@@ -233,16 +239,16 @@ Examples
 
 ### 7. Generate a Secure Token (JWT)
 
-Merchants using the embedded 4X experience don’t need to sign in again. Instead, your backend generates a signed JWT that authenticates the user. This token must be generated **on your backend**, using the Secret Key received earlier, and signed using HS256. You can find a sample implementation in the examples section.
+Merchants using the embedded 4X experience do not need to sign in again. Instead, your backend generates a signed JWT that authenticates the user. This token must be generated **on your backend**, using the Secret Key received earlier, and signed using HS256. You can find a sample implementation in the examples section.
 This token is required when rendering the Web Component
 
 #### ✅ JWT Payload
 
 - **Seller ID:** After you create an account for the merchant who signed-up for ads with 4X, you’ll receive a Seller ID, which identifies the merchant in 4X and must be included when generating the Web Component token
-- **Email:** This is the email of the user associated with the merchant account in 4X. Any users associated with the merchant who will have access to ads need to be added as a user in 4X. This is the email of the currently logged-in user on your platform
+- **Email:** This is the email of the user associated with the merchant account in 4X. Any users associated with the merchant who will have access to ads need to be added as a user in 4X. This should be the email of the user currently logged into your platform
 - **exp:** Token expiration time in [Unix timestamp format](https://www.epochconverter.com/) (seconds since epoch, UTC). This defines how long the token will be valid. We recommend setting it to 5 to 15 minutes from the token creation time
 
-``` js
+```json
 {
     "sellerId": "abcd1234-ab12-cd34-ef56-abcdef123456",
     "email": "developer@example.com",
@@ -252,11 +258,14 @@ This token is required when rendering the Web Component
 
 **JWT Example Output:**
 
-``` js
+```js
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-🧪 **Never** expose your **Secret Key or token signing logic** in the **frontend**. Always generate tokens server-side
+##### ⚠️ Security Notes
+
+- **Never** expose your **Secret Key or token signing logic** in the **frontend**. Always generate tokens server-side
+- Do not use excessively long expiration times (over 1 hour)
 
 Examples
 
@@ -279,7 +288,7 @@ To load the 4X Web Component, include the following tags in your HTML:
 
 ℹ️ **index-latest always points to the latest stable version of the Web Component**
 
-If you prefer to lock to a specific release, you can use a versioned URL such as index-0.2.0.js and index-0.2.0.css
+If you prefer to lock to a specific version, you can use a versioned URL such as index-0.2.0.js and index-0.2.0.css
 
 🔁 **Cache busting tip**
 
@@ -293,11 +302,11 @@ Some browsers or CDNs may aggressively cache index-latest. To force the browser 
 
 To render properly, the 4X Web Component requires a container with at least **520px width**. Be sure to apply this minimum to any container wrapping the component:
 
-``` html
+```html
 <div style="min-width: 520px;">
     <wc-4xd
-        web-component-key="<WEB-COMPONENT-KEY>"
-        token="<JWT-TOKEN>"
+        web-component-key="<REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_3>"
+        token="<REPLACE_ME_WITH_SIGNED_JWT_TOKEN_FROM_STEP_7>"
         route="/"
         hidden-sidebar="false"
         primary-color="#0040ff"
@@ -331,8 +340,8 @@ Examples
 
 | ![Angular Logo](assets/icons/64x64/angularjs.svg) | ![React Logo](assets/icons/64x64/react.svg) | ![TypeScript Logo](assets/icons/64x64/typescript.svg) | ![Vue Logo](assets/icons/64x64/vuejs.svg)    |
 | :-----------------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: | :-------------------------------: |
-| [Angular](EmbedWebComponent/angular/README.md)    | [React](EmbedWebComponent/react/README.md)  | [TypeScript](EmbedWebComponent/typescript/README.md)  | [Vue](EmbedWebComponent/vue/README.md) |
 | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/angular) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/react) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/typescript) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/vue) |
+| [Angular](EmbedWebComponent/angular/README.md)    | [React](EmbedWebComponent/react/README.md)  | [TypeScript](EmbedWebComponent/typescript/README.md)  | [Vue](EmbedWebComponent/vue/README.md) |
 
 ---
 
@@ -340,9 +349,10 @@ Examples
 
 - ✅ You’ve:
   - Connected to the 4X Developer Portal
-  - Retrieved your API and Web Component keys
+  - Retrieved your 4X Ads API and Web Component keys
   - Generated a secure JWT
   - Registered your seller and users
+  - Managed subscription
   - Embedded the Web Component
 
 - 🚀 Next:
