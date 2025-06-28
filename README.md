@@ -26,8 +26,8 @@ This repository is for developers who want to integrate 4X features into their p
   - [Retrieve 4X Ads API Keys](#2-retrieve-4x-ads-api-keys)
   - [Retrieve Web Component Key](#3-retrieve-web-component-key)  
   - [Create Seller](#4-create-seller)
-  - [Start or Pause a Subscription](#5-start-or-pause-a-subscription)
-  - [Create User](#6-create-user)
+  - [Create User](#5-create-user)
+  - [Manage Subscription](#6-manage-subscription)
   - [Generate a Secure Token (JWT)](#7-generate-a-secure-token-jwt)
   - [Embed the Web Component](#8-embed-and-configure-the-web-component)
   - [Sample UI Preview](#sample-ui-preview)
@@ -132,8 +132,19 @@ To embed the component in your app and securely communicate with the backend, yo
 
 Follow these steps to obtain them:
 
-1. **Generate the keys: [Generate Web Component Configuration](https://api.4xdigital.ai/api-details#api=integration-mock&operation=generateWebComponentConfiguration)**
-2. **Retrieve the keys: [Get Web Component Keys](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWebComponentKeys)**
+- **📘Generate the keys**
+
+| Environment | Docs                                                                                                                          |
+| ----------- | :---------------------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=generateWebComponentConfiguration)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=generateWebComponentConfiguration) |
+
+- **📘Retrieve the keys**
+
+| Environment | Docs                                                                                                            |
+| ----------- | :-------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getWebComponentKeys)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWebComponentKeys) |
 
 #### 💡 Security Notes (Important)
 
@@ -150,8 +161,26 @@ Examples
 
 To create a seller on the 4X Platform, call the seller creation API from your backend. You can determine when to create the seller, for instance when the seller enables the advertising add-on on your platform. This registers the seller and links them to your platform
 
-- 📘[Create Seller API](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createSellerWithChannels)
-- 📘[Get Seller Info API](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getSellerWithChannels)
+- **📘Create Seller**
+
+| Environment | Docs                                                                                                                 |
+| ----------- | :------------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=createSellerWithChannels)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createSellerWithChannels) |
+
+- **📘Update Seller**
+
+| Environment | Docs                                                                                                                 |
+| ----------- | :------------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=updateSellerWithChannels)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=updateSellerWithChannels) |
+
+- **📘Get Seller Info**
+
+| Environment | Docs                                                                                                              |
+| ----------- | :---------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getSellerWithChannels)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getSellerWithChannels) |
 
 💡The **Seller ID** returned should be stored and mapped to your internal seller record
 
@@ -161,30 +190,46 @@ Examples
 | :---------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
 | [C#](CreateSeller/csharp/README.md)       | [Node.js](CreateSeller/nodejs/README.md)       | [Python](CreateSeller/python/README.md)       |
 
-### 5. Start or Pause a Subscription
-
-You can control whether a seller has an active subscription using these endpoints:
-
-- 📘[Start Subscriptions API](https://api.4xdigital.ai/api-details#api=integration-mock&operation=startSubscription)
-- 📘[Pause Subscriptions API](https://api.4xdigital.ai/api-details#api=integration-mock&operation=pauseSubscription)
-
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg)     | ![Node.js Logo](assets/icons/64x64/nodejs.svg)     | ![Python Logo](assets/icons/64x64/python.svg)     |
-| :-------------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: |
-| [C#](StartPauseSubscription/csharp/README.md) | [Node.js](StartPauseSubscription/nodejs/README.md) | [Python](StartPauseSubscription/python/README.md) |
-
-### 6. Create User
+### 5. Create User
 
 To create users under a seller, use:
 
-- 📘[Create User API](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createUser)
+- **📘Create User**
+
+| Environment | Docs                                                                                                   |
+| ----------- | :----------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=createUser)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createUser) |
 
 Examples
 
 | ![C# Logo](assets/icons/64x64/csharp.svg) | ![Node.js Logo](assets/icons/64x64/nodejs.svg) | ![Python Logo](assets/icons/64x64/python.svg) |
 | :---------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
 | [C#](CreateUser/csharp/README.md)         | [Node.js](CreateUser/nodejs/README.md)         | [Python](CreateUser/python/README.md)         |
+
+### 6. Manage Subscription
+
+You can control whether a seller has an active subscription using these endpoints:
+
+- **📘Start Subscription**
+
+| Environment | Docs                                                                                                          |
+| ----------- | :-----------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=startSubscription)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=startSubscription) |
+
+- **📘Pause Subscription**
+
+| Environment | Docs                                                                                                          |
+| ----------- | :-----------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=pauseSubscription)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=pauseSubscription) |
+
+Examples
+
+| ![C# Logo](assets/icons/64x64/csharp.svg)     | ![Node.js Logo](assets/icons/64x64/nodejs.svg)     | ![Python Logo](assets/icons/64x64/python.svg)     |
+| :-------------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: |
+| [C#](StartPauseSubscription/csharp/README.md) | [Node.js](StartPauseSubscription/nodejs/README.md) | [Python](StartPauseSubscription/python/README.md) |
 
 ### 7. Generate a Secure Token (JWT)
 
@@ -222,6 +267,25 @@ Examples
 ### 8. Embed and Configure the Web Component
 
 Embed the Web Component in your frontend and provide the required attributes
+
+#### 🔗 Web Component Assets
+
+To load the 4X Web Component, include the following tags in your HTML:
+
+```html
+<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-latest.css">
+<script src="https://cdn.4xdigital.ai/index-latest.js" defer></script>
+```
+
+ℹ️ **index-latest always points to the latest stable version of the Web Component**
+If you prefer to lock to a specific release, you can use a versioned URL such as index-0.2.0.js and index-0.2.0.css
+
+🔁 **Cache busting tip**
+Some browsers or CDNs may aggressively cache index-latest. To force the browser to reload the latest version, you can append a query string like ?v=latest
+
+```html
+<script src="https://cdn.4xdigital.ai/index-latest.js?v=latest" defer></script>
+```
 
 #### 📏 Minimum Width Requirement (Important)
 
