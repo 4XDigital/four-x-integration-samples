@@ -269,9 +269,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 Examples
 
-| ![C# Logo](assets/icons/64x64/csharp.svg) | ![Node.js Logo](assets/icons/64x64/nodejs.svg) | ![Python Logo](assets/icons/64x64/python.svg) |
-| :---------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
-| [C#](GenerateTokenJwt/csharp/README.md)   | [Node.js](GenerateTokenJwt/nodejs/README.md)   | [Python](GenerateTokenJwt/python/README.md)   |
+| ![C# Logo](assets/icons/64x64/csharp.svg)  |
+| :----------------------------------------: |
+| [C#](07-GenerateTokenJwt/csharp/README.md) |
 
 ### 8. Embed and Configure the Web Component
 

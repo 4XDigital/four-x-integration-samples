@@ -1,0 +1,85 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Mono Auto Generated Files
+mono_crash.*
+
+## Visual Studio Code
+.vscode/
+
+## Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## dotCover
+*.dotCover
+
+## StyleCop
+StyleCopReport.xml
+
+## Files built by Visual Studio
+*.dll
+*.exe
+*.app
+*.pdb
+*.cache
+*.mdb
+
+## NuGet
+*.nupkg
+# NuGet Packages Folder
+packages/
+# Ignore project.lock.json if using project.json
+project.lock.json
+# If using PackageReference, you can ignore this
+.nuget/
+
+## Entity Framework
+*.dbmdl
+
+## MSBuild binary log
+*.binlog
+
+## Others
+*.log
+*.vs/
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Azure Pipelines
+.azure-pipelines/
+
+# Local environment secrets
+secrets.*
+appsettings.*.local.json
+.env
+
+# JetBrains Rider
+.idea/
+
+# Backup & temporary files
+*.bak
+*.tmp
+*.temp
+
+# OS generated
+.DS_Store
+Thumbs.db
