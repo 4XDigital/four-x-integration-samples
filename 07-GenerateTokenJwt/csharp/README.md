@@ -8,7 +8,6 @@ Useful for testing and debugging token-based authentication workflows in your sy
 - Generate JWT tokens with a seller's ID and email
 - Validate existing JWT tokens
 - Works via CLI or interactive terminal mode
-- Written in C# using System.CommandLine
 
 ---
 
@@ -97,8 +96,8 @@ Choose **"2 - Validate token"** and follow the prompts.
 ``` bash
 .
 ├── Program.cs
-├── JwtExtensions.cs         # Extension method for validating JWT
-├── WebComponentJwtPayload.cs # Model and logic for token generation
+├── Extensions/JwtExtensions.cs        # Extension method for validating JWT
+├── Payloads/WebComponentJwtPayload.cs # Model and logic for token generation
 └── ...
 ```
 
