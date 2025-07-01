@@ -67,7 +67,7 @@ Inside `App.jsx`:
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
-- [4X Web Component](https://cdn.4xdigital.ai)
+- 4X Web Component
 
 ## 🐳 Run with Docker
 
