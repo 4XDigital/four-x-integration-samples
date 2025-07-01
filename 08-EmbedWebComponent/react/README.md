@@ -37,8 +37,8 @@ Your app will be available at `http://localhost:5173`.
 The 4X Web Component is loaded via CDN. These tags are added to `index.html`:
 
 ```html
-<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-latest.css" />
-<script src="https://cdn.4xdigital.ai/index-latest.js?v=latest" defer></script>
+<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-0.2.0.css" />
+<script src="https://cdn.4xdigital.ai/index-0.2.0.js" defer></script>
 ```
 
 ### Minimum Width Requirement

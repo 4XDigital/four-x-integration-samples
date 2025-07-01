@@ -19,13 +19,20 @@ Useful for testing and debugging token-based authentication workflows in your sy
 
 ## 🚀 Usage
 
-### Build the project
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/4XDigital/four-x-integration-samples.git
+cd ./07-GenerateTokenJwt/csharp
+```
+
+### 2. Build the project
 
 ``` bash
 dotnet build
 ```
 
-### Run the tool
+### 3. Run the tool
 
 #### Show options
 
