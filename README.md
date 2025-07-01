@@ -20,7 +20,6 @@ This repository is for developers who want to integrate 4X features into their p
 
 - [Overview](#-overview)
 - [How It Works](#-how-it-works)
-- [4X Ads API Client Libraries](#-4x-ads-api-client-libraries)
 - [Quick Start Guide](#-quick-start-guide)
   - [Accept Invitation to Developer Portal](#1-accept-invitation-to-developer-portal)
   - [Retrieve 4X Ads API Keys](#2-retrieve-4x-ads-api-keys)
@@ -66,16 +65,6 @@ sequenceDiagram
 ```
 
 ---
-
-## 📦 4X Ads API Client Libraries
-
-To simplify the integration with our 4X Ads API, we provide official client libraries published to GitHub Packages. These packages handle authentication, headers, and endpoint logic so you can focus on your business logic.
-
-| Language             | Package Name                   | Install Command                                                                                           |
-|----------------------|--------------------------------|-----------------------------------------------------------------------------------------------------------|
-| C# (.NET)            | `FourX.AdsApi.Client`          | `dotnet add package FourX.AdsApi.Client --source https://nuget.pkg.github.com/4xcompany/index.json`       |
-| Node.js (TypeScript) | `@4xcompany/four-x-ads-client` | `npm install @4xcompany/four-x-ads-client --registry=https://npm.pkg.github.com`                          |
-| Python               | `four-x-ads-client`            | `pip install four-x-ads-client --extra-index-url https://__token__:<TOKEN>@pypi.pkg.github.com/4xcompany` |
 
 ### 📬 Postman Collection
 
@@ -157,12 +146,6 @@ Follow these steps to obtain them:
 - **Store the Secret Key securely and use it only on your backend. Never expose it in frontend code**
 - **All API requests and embedded components must use HTTPS. Requests over HTTP will be rejected**
 
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg)      | ![Node.js Logo](assets/icons/64x64/nodejs.svg)      | ![Python Logo](assets/icons/64x64/python.svg)      |
-| :--------------------------------------------: | :-------------------------------------------------: | :------------------------------------------------: |
-| [C#](RetrieveWebComponentKey/csharp/README.md) | [Node.js](RetrieveWebComponentKey/nodejs/README.md) | [Python](RetrieveWebComponentKey/python/README.md) |
-
 ### 4. Create Seller
 
 To create a seller on the 4X Platform, invoke the seller creation endpoint from your backend. You can create the seller when they enable the advertising add-on on your platform. This registers the seller and associates them with your platform
@@ -189,12 +172,6 @@ To create a seller on the 4X Platform, invoke the seller creation endpoint from 
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getSellerWithChannels) |
 
 💡Store the **Seller ID** returned and map it to your internal seller record
-
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg) | ![Node.js Logo](assets/icons/64x64/nodejs.svg) | ![Python Logo](assets/icons/64x64/python.svg) |
-| :---------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
-| [C#](CreateSeller/csharp/README.md)       | [Node.js](CreateSeller/nodejs/README.md)       | [Python](CreateSeller/python/README.md)       |
 
 ### 5. Create User
 
@@ -230,12 +207,6 @@ You can control whether a seller has an active subscription using these endpoint
 | ----------- | :-----------------------------------------------------------------------------------------------------------: |
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=pauseSubscription)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=pauseSubscription) |
-
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg)     | ![Node.js Logo](assets/icons/64x64/nodejs.svg)     | ![Python Logo](assets/icons/64x64/python.svg)     |
-| :-------------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: |
-| [C#](StartPauseSubscription/csharp/README.md) | [Node.js](StartPauseSubscription/nodejs/README.md) | [Python](StartPauseSubscription/python/README.md) |
 
 ### 7. Generate a Secure Token (JWT)
 
@@ -282,20 +253,8 @@ Embed the Web Component in your frontend and provide the required attributes
 To load the 4X Web Component, include the following tags in your HTML:
 
 ```html
-<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-latest.css">
-<script src="https://cdn.4xdigital.ai/index-latest.js" defer></script>
-```
-
-ℹ️ **index-latest always points to the latest stable version of the Web Component**
-
-If you prefer to lock to a specific version, you can use a versioned URL such as index-0.2.0.js and index-0.2.0.css
-
-🔁 **Cache busting tip**
-
-Some browsers or CDNs may aggressively cache index-latest. To force the browser to reload the latest version, you can append a query string like ?v=latest
-
-```html
-<script src="https://cdn.4xdigital.ai/index-latest.js?v=latest" defer></script>
+<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-0.2.0.css">
+<script src="https://cdn.4xdigital.ai/index-0.2.0.js" defer></script>
 ```
 
 #### 📏 Minimum Width Requirement (Important)
@@ -338,10 +297,10 @@ Here’s what the 4X Web Component looks like inside your platform:
 
 Examples
 
-| ![Angular Logo](assets/icons/64x64/angularjs.svg) | ![React Logo](assets/icons/64x64/react.svg) | ![TypeScript Logo](assets/icons/64x64/typescript.svg) | ![Vue Logo](assets/icons/64x64/vuejs.svg)    |
-| :-----------------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: | :-------------------------------: |
-| [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/angular) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/react) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/typescript) | [StackBlitz](https://stackblitz.com/github/4XDigital/four-x-integration-samples/tree/main/EmbedWebComponent/vue) |
-| [Angular](EmbedWebComponent/angular/README.md)    | [React](EmbedWebComponent/react/README.md)  | [TypeScript](EmbedWebComponent/typescript/README.md)  | [Vue](EmbedWebComponent/vue/README.md) |
+| ![React Logo](assets/icons/64x64/react.svg)                                               |
+| :---------------------------------------------------------------------------------------: |
+| [StackBlitz](https://stackblitz.com/edit/four-x-webcomponent-react-sample?file=README.md) |
+| [React](08-EmbedWebComponent/react/README.md)                                             |
 
 ---
 
