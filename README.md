@@ -39,8 +39,8 @@ This repository is for developers who want to integrate 4X features into their p
 
 Whether you're evaluating the platform or preparing a production deployment, these samples are designed to accelerate your integration. This repository includes:
 
-- Frontend samples (Angular, React, Vue, and TypeScript) with live StackBlitz demos
-- Backend samples (C#, Node.js, Python) to generate JWTs and call the 4X Ads API using the official client libraries
+- Frontend samples (React) with live StackBlitz demos
+- Backend samples (C#) to generate JWTs
 - A Postman collection for direct REST API usage
 - A sample UI preview and sequence diagram
 
@@ -67,8 +67,6 @@ sequenceDiagram
 ---
 
 ### 📬 Postman Collection
-
-Don’t see your backend language here? You can still use our REST API directly.
 
 | ![Postman Logo](assets/icons/64x64/postman.svg)                             |
 | :-------------------------------------------------------------------------: |
@@ -184,12 +182,6 @@ To create users under a seller, use:
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=createUser)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createUser) |
 
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg) | ![Node.js Logo](assets/icons/64x64/nodejs.svg) | ![Python Logo](assets/icons/64x64/python.svg) |
-| :---------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
-| [C#](CreateUser/csharp/README.md)         | [Node.js](CreateUser/nodejs/README.md)         | [Python](CreateUser/python/README.md)         |
-
 ### 6. Manage Subscription
 
 You can control whether a seller has an active subscription using these endpoints:
@@ -266,7 +258,7 @@ To render properly, the 4X Web Component requires a container with at least **52
     <wc-4xd
         web-component-key="<REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_3>"
         token="<REPLACE_ME_WITH_SIGNED_JWT_TOKEN_FROM_STEP_7>"
-        route="/"
+        route="/home"
         hidden-sidebar="false"
         primary-color="#0040ff"
         secondary-color="#00ffcc"
