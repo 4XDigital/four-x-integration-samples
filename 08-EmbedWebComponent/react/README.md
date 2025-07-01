@@ -1,4 +1,4 @@
-# 4X Web Component React Sample
+# Step 8 - Embed Web Component - React Sample
 
 This sample demonstrates how to embed the [4X Platform Web Component](https://4xdigital.ai) into a React application using standard HTML tags.
 
