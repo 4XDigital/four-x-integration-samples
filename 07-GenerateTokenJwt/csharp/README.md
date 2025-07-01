@@ -107,3 +107,7 @@ Choose **"2 - Validate token"** and follow the prompts.
 
 - This tool is intended for **testing and development only**
 - Do not use hardcoded secrets
+
+## 🧼 License
+
+This sample is provided for demonstration purposes and has no license restrictions
