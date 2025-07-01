@@ -2,7 +2,7 @@
 
 This sample demonstrates how to embed the [4X Platform Web Component](https://4xdigital.ai) into a React application using standard HTML tags.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/your-org/4x-webcomponent-react-sample)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/four-x-webcomponent-react-sample?file=README.md)
 
 ## 🚀 Getting Started
 
@@ -14,8 +14,8 @@ This sample demonstrates how to embed the [4X Platform Web Component](https://4x
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/4x-webcomponent-react-sample.git
-cd 4x-webcomponent-react-sample
+git clone https://github.com/4XDigital/four-x-integration-samples.git
+cd ./08-EmbedWebComponent/react
 ```
 
 ### 2. Install Dependencies
@@ -34,7 +34,7 @@ Your app will be available at `http://localhost:5173`.
 
 ## 🔗 Web Component Integration
 
-The 4X Web Component is loaded via CDN. These tags are added to `public/index.html`:
+The 4X Web Component is loaded via CDN. These tags are added to `index.html`:
 
 ```html
 <link rel="stylesheet" href="https://cdn.4xdigital.ai/index-latest.css" />
@@ -51,12 +51,12 @@ Inside `App.jsx`:
 
 ```jsx
 <wc-4xd
-  web-component-key="your-web-component-key"
-  token="your.signed.jwt.token"
-  route="/"
+  web-component-key="REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_1"
+  token="REPLACE_ME_WITH_SIGNED_JWT_FROM_STEP_7"
+  route="/home"
   hidden-sidebar="false"
   primary-color="#0040ff"
-  secondary-color="#00ffcc"
+  secondary-color="#fafafa"
   lang="en-US"
 />
 ```
@@ -74,8 +74,8 @@ Inside `App.jsx`:
 ### 1. Build and run
 
 ```bash
-docker build -t 4x-web-sample .
-docker run -p 5173:5173 4x-web-sample
+docker build -t four-x-embed-web-component-react-sample .
+docker run -p 5173:5173 four-x-embed-web-component-react-sample
 ```
 
 ### 2. Or use Docker Compose
