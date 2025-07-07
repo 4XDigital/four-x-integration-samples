@@ -50,18 +50,21 @@ The component must be rendered inside a container with at least `520px` width.
 Inside `App.jsx`:
 
 ```jsx
-<wc-4xd
-  web-component-key="REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_1"
-  token="REPLACE_ME_WITH_SIGNED_JWT_FROM_STEP_7"
-  route="/home"
-  hidden-sidebar="false"
-  primary-color="#0040ff"
-  secondary-color="#fafafa"
-  lang="en-US"
-/>
+<div style="min-width: 520px;">
+    <wc-4xd
+        web-component-key="<REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_3>"
+        seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
+        email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
+        route="/home"
+        hidden-sidebar="false"
+        primary-color="#0040ff"
+        secondary-color="#00ffcc"
+        lang="en-US">
+    </wc-4xd>
+</div>
 ```
 
-✅ Replace `web-component-key` and `token` with real values from your integration steps.
+✅ Replace `web-component-key`, `seller ID` and `email` with real values from your integration steps.
 
 ## 🛠 Built With
 

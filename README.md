@@ -229,7 +229,7 @@ To render properly, the 4X Web Component requires a container with at least **52
 </div>
 ```
 
-✅ Use the **Web Component Key**, the **Seller ID** and **User Email** from previous steps
+✅ Use the **Web Component Key**, the **Seller ID** and **Email** from previous steps
 
 #### Optional Properties
 
