@@ -27,8 +27,7 @@ This repository is for developers who want to integrate 4X features into their p
   - [Create Seller](#4-create-seller)
   - [Create User](#5-create-user)
   - [Manage Subscription](#6-manage-subscription)
-  - [Generate a Secure Token (JWT)](#7-generate-a-secure-token-jwt)
-  - [Embed the Web Component](#8-embed-and-configure-the-web-component)
+  - [Embed the Web Component](#7-embed-and-configure-the-web-component)
   - [Sample UI Preview](#sample-ui-preview)
   - [Next Steps](#-next-steps)
 - [Need Help?](#-need-help)
@@ -60,7 +59,7 @@ sequenceDiagram
   Frontend->>Backend: Requests JWT
   Backend->>4X Ads API: Calls 4X Ads API using Secret Key
   Backend->>Frontend: Returns JWT
-  Frontend->>4X Web Component: Loads using JWT + Web Component Key
+  Frontend->>4X Web Component: Loads using seller ID + logged User Email + Web Component Key
   4X Web Component->>4X Ads API: Authenticated requests
 ```
 
@@ -118,12 +117,11 @@ Ocp-Apim-Subscription-Key: <REPLACE_ME_PRIMARY_KEY_FROM_PROFILE_PAGE>
 
 ### 3. Retrieve Web Component Key
 
-To embed the component in your app and securely communicate with the backend, you'll need two credentials:
+To embed the component in your app and securely communicate with the backend, you'll need your credential:
 
 - **Web Component Key**
-- **Secret Key**
 
-Follow these steps to obtain them:
+Follow these steps to obtain it:
 
 - **📘Generate the keys**
 
@@ -141,7 +139,6 @@ Follow these steps to obtain them:
 
 #### 💡 Security Notes (Important)
 
-- **Store the Secret Key securely and use it only on your backend. Never expose it in frontend code**
 - **All API requests and embedded components must use HTTPS. Requests over HTTP will be rejected**
 
 ### 4. Create Seller
@@ -200,43 +197,7 @@ You can control whether a seller has an active subscription using these endpoint
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=pauseSubscription)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=pauseSubscription) |
 
-### 7. Generate a Secure Token (JWT)
-
-Merchants using the embedded 4X experience do not need to sign in again. Instead, your backend generates a signed JWT that authenticates the user. This token must be generated **on your backend**, using the Secret Key received earlier, and signed using HS256. You can find a sample implementation in the examples section.
-This token is required when rendering the Web Component
-
-#### ✅ JWT Payload
-
-- **Seller ID:** After you create an account for the merchant who signed-up for ads with 4X, you’ll receive a Seller ID, which identifies the merchant in 4X and must be included when generating the Web Component token
-- **Email:** This is the email of the user associated with the merchant account in 4X. Any users associated with the merchant who will have access to ads need to be added as a user in 4X. This should be the email of the user currently logged into your platform
-- **exp:** Token expiration time in [Unix timestamp format](https://www.epochconverter.com/) (seconds since epoch, UTC). This defines how long the token will be valid. We recommend setting it to 5 to 15 minutes from the token creation time
-
-```json
-{
-    "sellerId": "abcd1234-ab12-cd34-ef56-abcdef123456",
-    "email": "developer@example.com",
-    "exp": 1714326600
-}
-```
-
-**JWT Example Output:**
-
-```js
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
-
-##### ⚠️ Security Notes
-
-- **Never** expose your **Secret Key or token signing logic** in the **frontend**. Always generate tokens server-side
-- Do not use excessively long expiration times (over 1 hour)
-
-Examples
-
-| ![C# Logo](assets/icons/64x64/csharp.svg)  |
-| :----------------------------------------: |
-| [C#](07-GenerateTokenJwt/csharp/README.md) |
-
-### 8. Embed and Configure the Web Component
+### 7. Embed and Configure the Web Component
 
 Embed the Web Component in your frontend and provide the required attributes
 
@@ -257,7 +218,8 @@ To render properly, the 4X Web Component requires a container with at least **52
 <div style="min-width: 520px;">
     <wc-4xd
         web-component-key="<REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_3>"
-        token="<REPLACE_ME_WITH_SIGNED_JWT_TOKEN_FROM_STEP_7>"
+        seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
+        email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
         route="/home"
         hidden-sidebar="false"
         primary-color="#0040ff"
@@ -267,9 +229,7 @@ To render properly, the 4X Web Component requires a container with at least **52
 </div>
 ```
 
-✅ Use the **Web Component Key** and the generated **JWT Token** from previous steps
-
-Generate the JWT dynamically based on the user currently logged in to your platform
+✅ Use the **Web Component Key**, the **Seller ID** and **User Email** from previous steps
 
 #### Optional Properties
 
@@ -292,7 +252,7 @@ Examples
 | ![React Logo](assets/icons/64x64/react.svg)                                               |
 | :---------------------------------------------------------------------------------------: |
 | [StackBlitz](https://stackblitz.com/edit/four-x-webcomponent-react-sample?file=README.md) |
-| [React](08-EmbedWebComponent/react/README.md)                                             |
+| [React](07-EmbedWebComponent/react/README.md)                                             |
 
 ---
 
@@ -301,7 +261,6 @@ Examples
 - ✅ You’ve:
   - Connected to the 4X Developer Portal
   - Retrieved your 4X Ads API and Web Component keys
-  - Generated a secure JWT
   - Registered your seller and users
   - Managed subscription
   - Embedded the Web Component
