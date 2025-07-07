@@ -15,7 +15,7 @@ This sample demonstrates how to embed the [4X Platform Web Component](https://4x
 
 ```bash
 git clone https://github.com/4XDigital/four-x-integration-samples.git
-cd ./08-EmbedWebComponent/react
+cd ./07-EmbedWebComponent/react
 ```
 
 ### 2. Install Dependencies

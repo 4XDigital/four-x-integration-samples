@@ -9,8 +9,9 @@ const App = () => {
     <div style={{ minWidth: "520px", padding: "1rem" }}>
       <h1>4X Web Component Demo</h1>
       <wc-4xd
-        web-component-key="REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_1"
-        token="REPLACE_ME_WITH_SIGNED_JWT_FROM_STEP_7"
+        web-component-key="<REPLACE_ME_WITH_WEB_COMPONENT_KEY_FROM_STEP_3>"
+        seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
+        email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
         route="/"
         hidden-sidebar="false"
         primary-color="#0040ff"
