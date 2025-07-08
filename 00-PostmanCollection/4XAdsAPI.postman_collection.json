@@ -61,6 +61,99 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "3 - Add url to whitelist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Url\": \"https://globalsportsgear.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"auth",
+								"web-components",
+								"whitelist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Remove url from whitelist",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Url\": \"https://globalsportsgear.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"auth",
+								"web-components",
+								"whitelist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Get allowed domains",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{ApiPrimaryKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
+							"host": [
+								"{{ApiEndpoint}}"
+							],
+							"path": [
+								"auth",
+								"web-components",
+								"whitelist"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -68,7 +161,7 @@
 			"name": "2 - Create Seller",
 			"item": [
 				{
-					"name": "3 - Create Seller",
+					"name": "6 - Create Seller",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -100,7 +193,7 @@
 					"response": []
 				},
 				{
-					"name": "4 - Update Seller",
+					"name": "7 - Update Seller",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -133,7 +226,7 @@
 					"response": []
 				},
 				{
-					"name": "5 - Get Seller",
+					"name": "8 - Get Seller",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -162,7 +255,7 @@
 			"name": "3 - Create User",
 			"item": [
 				{
-					"name": "6 - Create User",
+					"name": "9 - Create User",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -201,7 +294,7 @@
 			"name": "4 - Manage Subscription",
 			"item": [
 				{
-					"name": "7 - Start Subscription",
+					"name": "10 - Start Subscription",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -227,7 +320,7 @@
 					"response": []
 				},
 				{
-					"name": "8 - Pause Subscription",
+					"name": "11 - Pause Subscription",
 					"request": {
 						"method": "POST",
 						"header": [
