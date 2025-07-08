@@ -11,7 +11,7 @@ This repository provides end-to-end integration samples for embedding the 4X Web
 This repository is for developers who want to integrate 4X features into their platform. It is intended for:
 
 - Frontend engineers embedding the 4X Web Component
-- Backend developers generating JWT tokens and calling the 4X Ads API
+- Backend developers calling the 4X Ads API
 - Anyone testing or evaluating 4X integrations
 
 ---
@@ -55,7 +55,7 @@ sequenceDiagram
   participant 4X Web Component
 
   User->>Frontend: Loads Web Component
-  Backend->>4X Ads API: Calls 4X Ads API using Secret Key
+  Backend->>4X Ads API: Calls 4X Ads API using Primary Key
   Frontend->>4X Web Component: Loads using seller ID + logged User Email + Web Component Key
   4X Web Component->>4X Ads API: Authenticated requests
 ```
