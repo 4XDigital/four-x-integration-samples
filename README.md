@@ -4,7 +4,7 @@
 
 Welcome to the **4X Platform Integration Samples** repository.
 
-This repository provides end-to-end integration samples for embedding the 4X Web Component and interacting with the 4X Ads API, enabling you to quickly deliver advertising functionality within your own platform
+This repository provides end-to-end integration samples for embedding the 4X Web Component and interacting with the 4X Ads API, enabling you to quickly deliver advertising functionality within your platform
 
 ## 👤 Intended Audience
 
@@ -39,7 +39,6 @@ This repository is for developers who want to integrate 4X features into their p
 Whether you're evaluating the platform or preparing a production deployment, these samples are designed to accelerate your integration. This repository includes:
 
 - Frontend samples (React) with live StackBlitz demos
-- Backend samples (C#) to generate JWTs
 - A Postman collection for direct REST API usage
 - A sample UI preview and sequence diagram
 
@@ -56,9 +55,7 @@ sequenceDiagram
   participant 4X Web Component
 
   User->>Frontend: Loads Web Component
-  Frontend->>Backend: Requests JWT
   Backend->>4X Ads API: Calls 4X Ads API using Secret Key
-  Backend->>Frontend: Returns JWT
   Frontend->>4X Web Component: Loads using seller ID + logged User Email + Web Component Key
   4X Web Component->>4X Ads API: Authenticated requests
 ```
@@ -117,7 +114,7 @@ Ocp-Apim-Subscription-Key: <REPLACE_ME_PRIMARY_KEY_FROM_PROFILE_PAGE>
 
 ### 3. Retrieve Web Component Key
 
-To embed the component in your app and securely communicate with the backend, you'll need your credential:
+To embed the component in your app and securely communicate with the backend, you'll need your credentials:
 
 - **Web Component Key**
 
@@ -136,6 +133,29 @@ Follow these steps to obtain it:
 | ----------- | :-------------------------------------------------------------------------------------------------------------: |
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getWebComponentKeys)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWebComponentKeys) |
+
+Add the domains that are allowed to embed the Web Component
+
+- **📘Add URL to Whitelist**
+
+| Environment | Docs                                                                                                            |
+| ----------- | :-------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=createWhitelistItem)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createWhitelistItem) |
+
+- **📘Remove URL from Whitelist**
+
+| Environment | Docs                                                                                                            |
+| ----------- | :-------------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=deleteWhitelistItem)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=deleteWhitelistItem) |
+
+- **📘Get Allowed Domains**
+
+| Environment | Docs                                                                                                     |
+| ----------- | :------------------------------------------------------------------------------------------------------: |
+| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getWhitelist)      |
+| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWhitelist) |
 
 #### 💡 Security Notes (Important)
 
