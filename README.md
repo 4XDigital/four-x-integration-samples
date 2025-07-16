@@ -48,16 +48,26 @@ Whether you're evaluating the platform or preparing a production deployment, the
 
 ```mermaid
 sequenceDiagram
-  participant User
-  participant Frontend
+  participant Dev as Developer
   participant Backend
   participant 4X Ads API
-  participant 4X Web Component
+  participant Frontend
+  participant User
+  participant WC as 4X Web Component
 
-  User->>Frontend: Loads Web Component
-  Backend->>4X Ads API: Calls 4X Ads API using Primary Key
-  Frontend->>4X Web Component: Loads using seller ID + logged User Email + Web Component Key
-  4X Web Component->>4X Ads API: Authenticated requests
+  %% Setup Flow
+  Dev->>4X Ads API: Accept invitation and login
+  Dev->>4X Ads API: Retrieve API & Web Component Keys
+  Backend->>4X Ads API: Create Seller
+  Backend->>4X Ads API: Create User under Seller
+  Backend->>4X Ads API: Manage Subscription (optional)
+  Dev->>Frontend: Embed Web Component using keys (from Backend)
+
+  %% Runtime Flow
+  User->>Frontend: Visits embedded page
+  Frontend->>Backend: (Optional) Fetch sellerId, email, component key
+  Frontend->>WC: Initializes with sellerId, email, key
+  WC->>4X Ads API: Authenticated requests
 ```
 
 ---
@@ -134,29 +144,6 @@ Follow these steps to obtain it:
 | Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getWebComponentKeys)      |
 | Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWebComponentKeys) |
 
-Add the domains that are allowed to embed the Web Component
-
-- **📘Add URL to Whitelist**
-
-| Environment | Docs                                                                                                            |
-| ----------- | :-------------------------------------------------------------------------------------------------------------: |
-| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=createWhitelistItem)      |
-| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=createWhitelistItem) |
-
-- **📘Remove URL from Whitelist**
-
-| Environment | Docs                                                                                                            |
-| ----------- | :-------------------------------------------------------------------------------------------------------------: |
-| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=deleteWhitelistItem)      |
-| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=deleteWhitelistItem) |
-
-- **📘Get Allowed Domains**
-
-| Environment | Docs                                                                                                     |
-| ----------- | :------------------------------------------------------------------------------------------------------: |
-| Production  | [View API Docs (prod)](https://api.4xdigital.ai/api-details#api=integration&operation=getWhitelist)      |
-| Mock Server | [View API Docs (mock)](https://api.4xdigital.ai/api-details#api=integration-mock&operation=getWhitelist) |
-
 #### 💡 Security Notes (Important)
 
 - **All API requests and embedded components must use HTTPS. Requests over HTTP will be rejected**
@@ -226,9 +213,11 @@ Embed the Web Component in your frontend and provide the required attributes
 To load the 4X Web Component, include the following tags in your HTML:
 
 ```html
-<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-0.2.0.css">
-<script src="https://cdn.4xdigital.ai/index-0.2.0.js" defer></script>
+<link rel="stylesheet" href="https://cdn.4xdigital.ai/releases/v1-latest/four-x-web-component.css">
+<script src="https://cdn.4xdigital.ai/releases/v1-latest/four-x-web-component.js" defer></script>
 ```
+
+To use a specific version, refer to [https://cdn.4xdigital.ai/versions.json](https://cdn.4xdigital.ai/versions.json)
 
 #### 📏 Minimum Width Requirement (Important)
 
@@ -241,7 +230,7 @@ To render properly, the 4X Web Component requires a container with at least **52
         seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
         email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
         route="/home"
-        hidden-sidebar="false"
+        sidebar-type="hidden"
         primary-color="#0040ff"
         secondary-color="#00ffcc"
         lang="en-US">
@@ -256,7 +245,7 @@ To render properly, the 4X Web Component requires a container with at least **52
 | Name            | Description                                                                                                                 | Type              |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | route           | Controls which route of the app is rendered. Available routes:<br>- /home<br>- /campaigns<br>- /dashboard<br>- /my-business | string            |
-| hidden-sidebar  | Shows or hides the sidebar                                                                                                  | boolean           |
+| sidebar-type    | Setes the sidebar position. Available positions: <br>- vertical<br>- horizontal<br>- hidden                                 | string            |
 | primary-color   | Sets the primary theme color                                                                                                | string            |
 | secondary-color | Sets the secondary theme color                                                                                              | string            |
 | lang            | Sets the language (IETF tag, e.g. en-US, pt-BR)                                                                             | IETF language tag |
@@ -265,7 +254,7 @@ To render properly, the 4X Web Component requires a container with at least **52
 
 Here’s what the 4X Web Component looks like inside your platform:
 
-![Component Screenshot](assets/component-preview.png)
+![Component Screenshot](assets/preview/google-compaign-ready.png)
 
 Examples
 

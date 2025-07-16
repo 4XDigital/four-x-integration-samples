@@ -37,9 +37,11 @@ Your app will be available at `http://localhost:5173`.
 The 4X Web Component is loaded via CDN. These tags are added to `index.html`:
 
 ```html
-<link rel="stylesheet" href="https://cdn.4xdigital.ai/index-0.2.0.css" />
-<script src="https://cdn.4xdigital.ai/index-0.2.0.js" defer></script>
+<link rel="stylesheet" href="https://cdn.4xdigital.ai/releases/v1-latest/four-x-web-component.css" />
+<script src="https://cdn.4xdigital.ai/releases/v1-latest/four-x-web-component.js" defer></script>
 ```
+
+To use a specific version, refer to [https://cdn.4xdigital.ai/versions.json](https://cdn.4xdigital.ai/versions.json)
 
 ### Minimum Width Requirement
 
@@ -56,7 +58,7 @@ Inside `App.jsx`:
         seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
         email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
         route="/home"
-        hidden-sidebar="false"
+        sidebar-type="hidden"
         primary-color="#0040ff"
         secondary-color="#00ffcc"
         lang="en-US">

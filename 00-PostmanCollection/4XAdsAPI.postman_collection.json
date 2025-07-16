@@ -61,99 +61,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "3 - Add url to whitelist",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{ApiPrimaryKey}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"Url\": \"https://globalsportsgear.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
-							"host": [
-								"{{ApiEndpoint}}"
-							],
-							"path": [
-								"auth",
-								"web-components",
-								"whitelist"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "4 - Remove url from whitelist",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{ApiPrimaryKey}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"Url\": \"https://globalsportsgear.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
-							"host": [
-								"{{ApiEndpoint}}"
-							],
-							"path": [
-								"auth",
-								"web-components",
-								"whitelist"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "5 - Get allowed domains",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ocp-Apim-Subscription-Key",
-								"value": "{{ApiPrimaryKey}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{ApiEndpoint}}/auth/web-components/whitelist",
-							"host": [
-								"{{ApiEndpoint}}"
-							],
-							"path": [
-								"auth",
-								"web-components",
-								"whitelist"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -161,7 +68,7 @@
 			"name": "2 - Create Seller",
 			"item": [
 				{
-					"name": "6 - Create Seller",
+					"name": "3 - Create Seller",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -173,7 +80,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"brand\": {\r\n        \"primaryColor\": \"#1A237E\",\r\n        \"secondaryColor\": \"#00BFA5\",\r\n        \"fontFamily\": \"Roboto\",\r\n        \"logoUrl\": \"https://globalsportsgear.com/logo.png\"\r\n    },\r\n    \"storeCountry\": \"US\",\r\n    \"targetLocations\": [{\r\n        \"country\": \"US\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"TX\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Houston\"\r\n        }]\r\n    }],\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }],\r\n    \"googleAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"USD\",\r\n            \"amount\": 80\r\n        },\r\n        \"googleMerchantCenterProperties\": {\r\n            \"accountId\": \"3698521470\"\r\n        },\r\n        \"googleAnalyticsProperties\": {\r\n            \"accountId\": \"1472583690\",\r\n            \"propertyId\": \"987654321\"\r\n        },\r\n        \"googleAdsProperties\": {\r\n            \"accountId\": \"9638527410\"\r\n        }\r\n    },\r\n    \"metaAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"USD\",\r\n            \"amount\": 40\r\n        },\r\n        \"metaAdsProperties\": {\r\n            \"clientAccountId\": \"123456789012345\",\r\n            \"pixelId\": \"123456789012345\",\r\n            \"pageId\": \"123456789012345\",\r\n            \"instagramId\": \"123456789012345\"\r\n        }\r\n    }\r\n}",
+							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",    \r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -193,7 +100,7 @@
 					"response": []
 				},
 				{
-					"name": "7 - Update Seller",
+					"name": "4 - Update Seller",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -205,7 +112,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"brand\": {\r\n        \"primaryColor\": \"#1A237E\",\r\n        \"secondaryColor\": \"#00BFA5\",\r\n        \"fontFamily\": \"Roboto\",\r\n        \"logoUrl\": \"https://globalsportsgear.com/logo-new.png\"\r\n    },\r\n    \"targetLocations\": [{\r\n        \"country\": \"US\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"TX\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Houston\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Austin\"\r\n        }]\r\n    }, {\r\n        \"country\": \"BR\",\r\n        \"geographicLocations\": [{\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"SP\"\r\n        }, {\r\n            \"type\": \"regionOrState\",\r\n            \"identifier\": \"RJ\"\r\n        }, {\r\n            \"type\": \"city\",\r\n            \"identifier\": \"Rio de Janeiro\"\r\n        }]\r\n    }],\r\n    \"googleAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"BRL\",\r\n            \"amount\": 100\r\n        },\r\n        \"googleMerchantCenterProperties\": {\r\n            \"accountId\": \"3698521470\"\r\n        },\r\n        \"googleAnalyticsProperties\": {\r\n            \"accountId\": \"1472583690\",\r\n            \"propertyId\": \"987654321\"\r\n        },\r\n        \"googleAdsProperties\": {\r\n            \"accountId\": \"9638527410\"\r\n        }\r\n    },\r\n    \"metaAdsConfig\": {\r\n        \"dailyBudget\": {\r\n            \"currency\": \"USD\",\r\n            \"amount\": 40\r\n        },\r\n        \"metaAdsProperties\": {\r\n            \"clientAccountId\": \"123456789012345\",\r\n            \"pixelId\": \"123456789012345\",\r\n            \"pageId\": \"123456789012345\",\r\n            \"instagramId\": \"123456789012345\"\r\n        }\r\n    }\r\n}",
+							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -226,7 +133,7 @@
 					"response": []
 				},
 				{
-					"name": "8 - Get Seller",
+					"name": "5 - Get Seller",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -255,7 +162,7 @@
 			"name": "3 - Create User",
 			"item": [
 				{
-					"name": "9 - Create User",
+					"name": "6 - Create User",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -294,7 +201,7 @@
 			"name": "4 - Manage Subscription",
 			"item": [
 				{
-					"name": "10 - Start Subscription",
+					"name": "7 - Start Subscription",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -320,7 +227,7 @@
 					"response": []
 				},
 				{
-					"name": "11 - Pause Subscription",
+					"name": "8 - Pause Subscription",
 					"request": {
 						"method": "POST",
 						"header": [
