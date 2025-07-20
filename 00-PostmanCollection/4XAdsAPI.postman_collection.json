@@ -68,6 +68,134 @@
 			"name": "2 - Create Seller",
 			"item": [
 				{
+					"name": "Sandbox",
+					"item": [
+						{
+							"name": "3.1 - Create a Test Seller with Created Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{ApiPrimaryKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"status\": \"Created\",\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiEndpoint}}/sandbox/sellers",
+									"host": [
+										"{{ApiEndpoint}}"
+									],
+									"path": [
+										"sandbox",
+										"sellers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.2 - Create a Test Seller with Onboarding Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{ApiPrimaryKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"status\": \"Onboarding\",\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiEndpoint}}/sandbox/sellers",
+									"host": [
+										"{{ApiEndpoint}}"
+									],
+									"path": [
+										"sandbox",
+										"sellers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3.3 - Create a Test Seller with Active Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{ApiPrimaryKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"status\": \"Active\",\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiEndpoint}}/sandbox/sellers",
+									"host": [
+										"{{ApiEndpoint}}"
+									],
+									"path": [
+										"sandbox",
+										"sellers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5.1 - List Test Sellers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{ApiPrimaryKey}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiEndpoint}}/sandbox/sellers",
+									"host": [
+										"{{ApiEndpoint}}"
+									],
+									"path": [
+										"sandbox",
+										"sellers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "3 - Create Seller",
 					"request": {
 						"method": "POST",
@@ -80,7 +208,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",    \r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
+							"raw": "{\r\n    \"businessName\": \"Global Sports Gear\",\r\n    \"businessWebsite\": \"https://globalsportsgear.com\",\r\n    \"users\": [{\r\n        \"email\": \"michael@globalsportsgear.com\",\r\n        \"firstName\": \"Michael\",\r\n        \"lastName\": \"Brown\"\r\n    }, {\r\n        \"email\": \"ana@globalsportsgear.com\",\r\n        \"firstName\": \"Ana\",\r\n        \"lastName\": \"Silva\"\r\n    }]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

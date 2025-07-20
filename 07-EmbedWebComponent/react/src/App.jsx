@@ -13,7 +13,7 @@ const App = () => {
         seller-id="<REPLACE_ME_WITH_SELLER_ID_FROM_STEP_4>"
         email="<REPLACE_ME_WITH_USER_EMAIL_FROM_STEP_5>"
         route="/"
-        hidden-sidebar="false"
+        sidebar-type="horizontal"
         primary-color="#0040ff"
         secondary-color="#fafafa"
         lang="en-US"
